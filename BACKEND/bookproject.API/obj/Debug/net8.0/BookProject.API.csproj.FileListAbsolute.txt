@@ -125,3 +125,4 @@
 /Users/haydenwhalen/Desktop/bookproject/BACKEND/bookproject.API/obj/Debug/net8.0/BookProject.API.pdb
 /Users/haydenwhalen/Desktop/bookproject/BACKEND/bookproject.API/obj/Debug/net8.0/BookProject.API.genruntimeconfig.cache
 /Users/haydenwhalen/Desktop/bookproject/BACKEND/bookproject.API/obj/Debug/net8.0/ref/BookProject.API.dll
+/Users/haydenwhalen/Desktop/bookproject/BACKEND/bookproject.API/obj/Debug/net8.0/BookProject.API.sourcelink.json
