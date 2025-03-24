@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Book } from "./types/Books";
 
-function BookList() {
+function BookList({selectedCategories} : {selectedCategories : string[] }) {
   const [books, setBooks] = useState<Book[]>([]);
   const [pageSize, setPageSize] = useState<number>(5);
   const [pageNum, setPageNum] = useState<number>(1);
@@ -11,8 +11,14 @@ function BookList() {
 
   useEffect(() => {
     const fetchBooks = async () => {
+
+      const categoryParams = selectedCategories
+      .map((cat) => `booksTypes=${encodeURIComponent(cat)}`)
+      .join('&');
+
+
       const response = await fetch(
-        `http://localhost:5274/api/Book?pageSize=${pageSize}&pageNumber=${pageNum}`
+        `http://localhost:5274/api/Book?pageSize=${pageSize}&pageNumber=${pageNum}${selectedCategories.length ? `&${categoryParams}` : ``}`
       );
       const data = await response.json();
       setBooks(data.books);
@@ -21,7 +27,7 @@ function BookList() {
     };
 
     fetchBooks();
-  }, [pageSize, pageNum]);
+  }, [pageSize, pageNum, selectedCategories]);
 
   // Sort the books array by title in ascending or descending order
   const sortedBooks = [...books].sort((a, b) => {
@@ -32,8 +38,6 @@ function BookList() {
 
   return (
     <>
-      <h1>Books</h1>
-      
       {/* Sorting Dropdown */}
       <div>
         <label>
