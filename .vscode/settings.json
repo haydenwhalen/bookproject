@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/11e52b0f-f493-42ba-bc2e-21aa43c97bd5/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/BookProjectWhalenBackend",
+    "appService.deploySubpath": "BACKEND/bookproject.API/publish"
+}

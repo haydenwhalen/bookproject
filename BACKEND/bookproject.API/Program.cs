@@ -13,7 +13,15 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<BookDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("BookConnection")));
 
-builder.Services.AddCors(); //for the frontend side to access json
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173") // Update to your React app port
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});  //for the frontend side to access json
 
 var app = builder.Build();
 
