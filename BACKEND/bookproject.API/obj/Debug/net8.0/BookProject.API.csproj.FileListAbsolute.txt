@@ -126,3 +126,9 @@
 /Users/haydenwhalen/Desktop/bookproject/BACKEND/bookproject.API/obj/Debug/net8.0/BookProject.API.genruntimeconfig.cache
 /Users/haydenwhalen/Desktop/bookproject/BACKEND/bookproject.API/obj/Debug/net8.0/ref/BookProject.API.dll
 /Users/haydenwhalen/Desktop/bookproject/BACKEND/bookproject.API/obj/Debug/net8.0/BookProject.API.sourcelink.json
+/Users/haydenwhalen/Desktop/bookproject/BACKEND/bookproject.API/bin/Debug/net8.0/publish/web.config
+/Users/haydenwhalen/Desktop/bookproject/BACKEND/bookproject.API/bin/Debug/net8.0/publish/appsettings.Development.json
+/Users/haydenwhalen/Desktop/bookproject/BACKEND/bookproject.API/bin/Debug/net8.0/publish/appsettings.json
+/Users/haydenwhalen/Desktop/bookproject/BACKEND/bookproject.API/bin/Debug/net8.0/publish/BookProject.API.deps.json
+/Users/haydenwhalen/Desktop/bookproject/BACKEND/bookproject.API/bin/Debug/net8.0/publish/BookProject.API.runtimeconfig.json
+/Users/haydenwhalen/Desktop/bookproject/BACKEND/bookproject.API/bin/Debug/net8.0/Bookstore.sqlite
