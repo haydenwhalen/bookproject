@@ -8,18 +8,34 @@ function CategoryFilter({
   selectedCategories: string[];
   setSelectedCategories: (categories: string[]) => void;
 }) {
-  // State to store all possible categories fetched from the API
   const [categories, setCategories] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch('https://bookprojectwhalenbackend.azurewebsites.net/api/Book');
+        const response = await fetch(
+          "https://bookprojectwhalenbackend.azurewebsites.net/api/Book"
+        );
         const data = await response.json();
-        console.log("Fetched categories", data);
-        setCategories(data);
+        console.log("Fetched categories:", data);
+
+        let uniqueCategories: string[] = [];
+
+        if (data && Array.isArray(data.books)) {
+          uniqueCategories = Array.from(
+            new Set(
+              data.books
+                .map((book: any) => book.category)
+                .filter((cat: any) => typeof cat === "string")
+            )
+          );
+        } else {
+          console.error("Unexpected response format:", data);
+        }
+
+        setCategories(uniqueCategories); // ✅ This now works because it's always defined above
       } catch (error) {
-        console.error("Error fetching categories", error);
+        console.error("Error fetching categories:", error);
       }
     };
 
@@ -56,3 +72,15 @@ function CategoryFilter({
 }
 
 export default CategoryFilter;
+
+
+
+
+
+
+
+
+
+
+
+

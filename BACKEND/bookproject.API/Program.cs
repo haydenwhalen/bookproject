@@ -8,17 +8,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// ✅ Configure DB Context
 builder.Services.AddDbContext<BookDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("BookConnection")));
 
-// ✅ Define named CORS policy
+// ✅ CORS Policy (include deployed static frontend URL!)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp", policy =>
     {
         policy.WithOrigins(
-            "http://localhost:5173",
-            "https://lemon-bush-05626511e.6.azurestaticapps.net"
+            "http://localhost:5173", // for local dev
+            "https://nice-bush-0b96cb71e.6.azurestaticapps.net" // your live frontend
         )
         .AllowAnyMethod()
         .AllowAnyHeader();
@@ -27,7 +28,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure middleware
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -36,7 +37,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// ✅ Apply the named CORS policy here
+// ✅ Apply CORS before authorization
 app.UseCors("AllowReactApp");
 
 app.UseAuthorization();
@@ -44,4 +45,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
 
