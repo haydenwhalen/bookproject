@@ -24,7 +24,8 @@ dist-ssr
 *.sw?
 .DS_Store
 
-# Ignore backend build output
 **/bin/
 **/obj/
+**/publish/
+
 
