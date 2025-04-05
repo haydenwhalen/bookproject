@@ -18,13 +18,18 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowReactApp", policy =>
     {
         policy.WithOrigins(
-            "http://localhost:5173", // for local dev
-            "https://nice-bush-0b96cb71e.6.azurestaticapps.net" // your live frontend
-        )
-        .AllowAnyMethod()
-        .AllowAnyHeader();
+    "http://localhost:5173",
+    "https://white-mushroom-080632d1e.6.azurestaticapps.net",
+  // https://white-mushroom-080632d1e.6.azurestaticapps.net // ✅ your deployed frontend
+    "https://bookprojectwhalenbackend.azurewebsites.net"       // ✅ your backend URL for Azure to call itself
+)
+.AllowAnyMethod()
+.AllowAnyHeader();
+
+
     });
 });
+
 
 var app = builder.Build();
 
