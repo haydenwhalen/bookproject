@@ -2,7 +2,7 @@
 
 import { Book } from "../types/Books";
 
-const API_URL = 'https://bookprojectwhalenbackend.azurewebsites.net/api/Book';
+const API_URL = "https://bookprojectwhalenbackend.azurewebsites.net/api/Book";
 
 interface FetchBooksResponse {
   books: Book[];
