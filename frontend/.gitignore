@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.DS_Store
+
+**/bin/
+**/obj/
+**/publish/
+
+
